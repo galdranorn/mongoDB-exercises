@@ -31,3 +31,52 @@ userSchema.pre('save', function(next){
     }
     next();
 })
+
+// ------------ CREATE USERS ---------------
+// create model from schema
+const User = mongoose.model('User', userSchema)
+
+// ------------ USER KENNY
+// new instancy of model User
+const kenny = new User ({
+    name: 'Kenny',
+    username: 'Kenny_the_boy',
+    password: 'password'
+})
+kenny.manify(function(err, name) {
+    if (err) throw err
+    console.log('Twoje nowe imię to: '+name)
+})
+// saving to the database
+kenny.save(function(err){
+    if (err) throw err
+    console.log('Uzytkownik ' + kenny.name + ' zapisany pomyslnie')
+})
+// ------------ USER BENNY
+const benny = new User ({
+    name: 'Benny',
+    username: 'Benny_the_boy',
+    password: 'password'
+})
+benny.manify(function(err, name) {
+    if (err) throw err
+    console.log('Twoje nowe imię to: '+name)
+})
+benny.save(function(err){
+    if (err) throw err
+    console.log('Uzytkownik ' + benny.name + ' zapisany pomyslnie')
+})
+// ------------ USER MARK
+const mark = new User ({
+    name: 'Mark',
+    username: 'Mark_the_boy',
+    password: 'password'
+})
+mark.manify(function(err, name) {
+    if (err) throw err
+    console.log('Twoje nowe imię to: '+name)
+})
+mark.save(function(err){
+    if (err) throw err
+    console.log('Uzytkownik ' + mark.name + ' zapisany pomyslnie')
+})
