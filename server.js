@@ -36,7 +36,7 @@ userSchema.pre('save', function(next){
 // create model from schema
 const User = mongoose.model('User', userSchema)
 
-// ------------ USER KENNY
+/*// ------------ USER KENNY
 // new instancy of model User
 const kenny = new User ({
     name: 'Kenny',
@@ -79,4 +79,19 @@ mark.manify(function(err, name) {
 mark.save(function(err){
     if (err) throw err
     console.log('Uzytkownik ' + mark.name + ' zapisany pomyslnie')
+})*/
+
+const query = user.find({})
+const promise = query.exec()
+promise.then(function(records) {
+    console.log('Actual database records are '+records)
 })
+promise.catch(function(reason){
+    console.log('Something went wrong '+reason)
+})
+
+/* same code without promise
+User.find({}, function (err, res){
+    if(err) throw err;
+    console.log('Actual database records are '+res);
+})*/
